@@ -44,6 +44,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'holmenskoletest@gmail.com'
 app.config['MAIL_PASSWORD'] = passwords.get("MAIL_PASSWORD", "")
 app.config['MAIL_DEFAULT_SENDER'] = 'holmenskoletest@gmail.com'
+app.config['SESSION_COOKIE_NAME'] = 'SDLIFJSAOIEOGF234PIREJGIGR1'
 
 mail = Mail(app)
 
