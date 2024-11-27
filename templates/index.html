@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevrådet Holmen Skole</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function IsLaerer() {
+            const dropdown = document.getElementById('dropdown1');
+            const studentClassInput = document.getElementById('student_class');
+
+            studentClassInput.style.display = dropdown.value === 'laerer_dropdown_option' ? 'none' : 'block';
+        }
+
+        window.onload = IsLaerer;
+    </script>
+</head>
+<body>
+    <header class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold">Elevrådet Holmen Skole</h1>
+        </div>
+    </header>
+
+    <!-- Updated description with larger font and center alignment -->
+    <section class="container py-4">
+        <p class="text-center lead text-muted fs-4">Send inn dine forslag til elevrådet</p>
+    </section>
+
+    <!-- Updated news link section for a better visual appearance -->
+    <section class="container py-3">
+        <div class="text-center">
+            <a href="{{ url_for('news') }}" class="btn btn-outline-dark btn-lg px-5 py-3 shadow-lg">
+                <strong>Les Nyheter</strong>
+            </a>
+            <a href="{{ url_for('voting') }}" class="btn btn-outline-dark btn-lg px-5 py-3 shadow-lg">
+                <strong>Stem</strong>
+            </a>
+            
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card shadow-lg rounded-4">
+                    <div class="card-body p-5">
+                        <form action="{{ url_for('submit_form') }}" method="POST">
+                            <div class="mb-4">
+                                <label for="dropdown1" class="form-label">Er du elev eller lærer?</label>
+                                <select name="dropdown1" id="dropdown1" class="form-select" onchange="IsLaerer()">
+                                    <option value="elev_dropdown_option">Elev</option>
+                                    <option value="laerer_dropdown_option">Lærer</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="student_name" class="form-label">Hva heter du? (valgfritt)</label>
+                                <input type="text" name="student_name" id="student_name" class="form-control" placeholder="Fullt navn">
+                            </div>
+                            <div class="mb-4" id="student_class_container">
+                                <label for="student_class" class="form-label">Hvilken klasse går du i?</label>
+                                <input type="text" name="student_class" id="student_class" class="form-control" placeholder="F.eks. 5A">
+                            </div>
+                            <div class="mb-4">
+                                <label for="student_proposal" class="form-label">Hva er forslaget ditt? *</label>
+                                <textarea name="student_proposal" id="student_proposal" class="form-control" required placeholder="Skriv ditt forslag her..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Forslag</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5 text-center">
+        <img class="img-fluid rounded-3" src="{{ url_for('static', filename='img/image1.jpg') }}" alt="Image of Holmen Skole">
+    </section>
+
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p class="small text-muted">Made with ♥ by <a href="{{ url_for('najasnake12') }}" class="text-dark">Najasnake12</a></p>
+            <a href="{{ url_for('admin_login') }}" class="text-dark mx-3">Admin Login</a>
+            <a href="{{ url_for('editor_login') }}" class="text-dark mx-3">Redaktør Login</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

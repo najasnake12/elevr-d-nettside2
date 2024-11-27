@@ -1,0 +1,4 @@
+### HOW TO LOGIN AS AN ADMIN OR AN EDITOR:
+
+This is fairly easy, open up the website, scroll down to the bottom (the bottom of the home page), click on "Redaktør Login" or "Admin Login"
+Based on your preferences and login.

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        /* Basic styles for readability */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: left; /* Align heading to the left */
+            font-size: 24px;  /* Slightly larger font size */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;      /* Full-width table */
+            border-collapse: collapse; /* Collapse borders for a cleaner look */
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* Simple border for cells */
+            padding: 8px;           /* Padding for readability */
+            text-align: left;       /* Align text to the left */
+        }
+
+        th {
+            background-color: #f0f0f0; /* Light background for header */
+        }
+
+        tr:hover {
+            background-color: #e9e9e9; /* Slightly darker background on hover */
+        }
+
+        /* Proposal Content Style */
+        .proposal-container {
+            position: relative; /* Needed for the show/hide functionality */
+        }
+
+        .proposal-content {
+            display: block; /* Allow the content to take full width */
+            max-width: 100%; /* Prevent overflow */
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+            overflow: hidden; /* Hide overflow by default */
+            transition: max-height 0.3s ease; /* Smooth transition */
+            font-size: 16px;
+            overflow-wrap: break-word; /* Break long words */
+            max-height: 50px; /* Limit height for truncated text */
+        }
+
+        .proposal-content.expanded {
+            max-height: 500px; /* Allow enough space for full text */
+        }
+
+        .show-more {
+            color: blue;          /* Color for the 'Read more' link */
+            cursor: pointer;      /* Pointer cursor for better UX */
+            text-decoration: underline; /* Underline for visibility */
+            margin-left: 5px;     /* Space between text and link */
+        }
+
+        .delete-link {
+            color: red; /* Red text for delete link */
+            cursor: pointer; /* Pointer cursor for better UX */
+            margin-left: 10px; /* Space between text and link */
+            text-decoration: underline; /* Underline for visibility */
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Navn:</th>
+                <th>Klasse:</th>
+                <th>Forslag:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr id="proposal-{{ loop.index }}">
+                <td>{{ row['student_name'] }}</td>
+                <td>{{ row['student_class'] }}</td>
+                <td>
+                    <div class="proposal-container">
+                        <div class="proposal-content" data-full-text="{{ row['student_proposal']|replace('\n', '<br>') }}">
+                            {{ row['student_proposal'][:20]|replace('\n', '<br>') }}{% if row['student_proposal']|length > 20 %}...{% endif %}
+                        </div>
+                        {% if row['student_proposal']|length > 20 %}
+                            <span class="show-more" onclick="toggleFullText(this)">Les Hele Forslaget</span>
+                        {% endif %}
+                        {% if show_delete_button %}
+                            <a href="{{ url_for('delete_proposal', proposal_id=row['id']) }}" class="delete-link" onclick="return confirm('Er du sikker på at du vil slette dette forslaget?');">Slett</a>
+                        {% else %}
+
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function toggleFullText(element) {
+            const proposalContent = element.previousElementSibling;
+            const fullText = proposalContent.getAttribute('data-full-text');
+
+            if (proposalContent.classList.contains('expanded')) {
+                proposalContent.classList.remove('expanded');
+                proposalContent.innerHTML = fullText.substring(0, 20).replace(/\n/g, '<br>') + '...';
+                element.textContent = 'Les Hele Forslaget';
+            } else {
+                proposalContent.classList.add('expanded');
+                proposalContent.innerHTML = fullText;
+                element.textContent = 'Vis Mindre';
+            }
+        }
+    </script>
+</body>
+</html>

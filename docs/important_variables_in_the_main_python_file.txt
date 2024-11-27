@@ -1,0 +1,53 @@
+### This is just to create an overview of important variables in the main python file.
+### The values (and/or the names) of the variable(s) may be updated in the future.
+
+
+
+
+app: <ast.Call object at 0x0000018982813AF0>
+english_words_global: ['dope', 'omg', 'simp', 'cringe']
+common_typos: ['adresse', 'aggressiv', ' nettop', 'nyskjerrig', 'igang', 'istedet', 'utrykk', 'tilegg', 'desverre', 'kansjke', 'etterhvert', 'ifjor', 'ihvertfall', 'epost', 'interesert', 'interesant', 'sannsynelig', 'sansynlig', 'sansynnlig', 'sjangse', 'baler', 'skjekke', 'leke stativ', 'sand kasse', 'fotbalbane', 'fotbal', 'basketbal', 'hokey', 'hocey', 'spesiellt', 'iriterende', 'sinnt', 'sÃ¥vidt', 'interisert']
+editor_database_file_global: editor_database.txt
+image_database_global: C:/Users/krist/Desktop/School council project/image_database
+passwords: {}
+mail: <ast.Call object at 0x000001898280CE80>
+errorlogger: <ast.Call object at 0x000001898280CD90>
+fh: <ast.Call object at 0x000001898280CB50>
+VOTE_FILE: voting_database.txt
+IP_FILE: ip_addresses.txt
+english_words_local: <ast.Name object at 0x000001898280C400>
+mail_local_var: <ast.Name object at 0x000001898280C370>
+common_typos_local_var: <ast.Name object at 0x000001898280C2E0>
+votes: {'1': 0, '2': 0}
+votes: <ast.Call object at 0x0000018982444E50>
+ip_address: <ast.Attribute object at 0x0000018982444B50>
+votes: <ast.Call object at 0x00000189824448E0>
+ip_address: <ast.Attribute object at 0x0000018982444130>
+votes: <ast.Call object at 0x0000018982443E80>
+editor_database_file_local: <ast.Name object at 0x00000189824434C0>
+image_database_local: <ast.Name object at 0x0000018982443430>
+article_path: <ast.Call object at 0x0000018982440220>
+articles: []
+entered_username: <ast.Subscript object at 0x0000018982446E60>
+entered_password: <ast.Subscript object at 0x0000018982446D40>
+entered_password: <ast.Subscript object at 0x000001898243E830>
+entered_username: <ast.Subscript object at 0x000001898243E710>
+conn: <ast.Call object at 0x000001898243CDF0>
+cursor: <ast.Call object at 0x000001898243CBE0>
+data: <ast.Call object at 0x000001898243CAF0>
+show_delete_button: <ast.Call object at 0x000001898243C8B0>
+title: <ast.Subscript object at 0x0000018982443280>
+description: <ast.Subscript object at 0x0000018982443160>
+content: <ast.Subscript object at 0x0000018982443040>
+image: <ast.Subscript object at 0x0000018982442F20>
+image_filename: None
+article_filename: <ast.JoinedStr object at 0x0000018982442A40>
+article_path: <ast.Call object at 0x0000018982442800>
+content: <ast.Call object at 0x000001898243FEE0>
+student_name: Anonym
+student_class: LÃ¦rer
+cursor: <ast.Call object at 0x000001898244ADA0>
+image_filename: <ast.Call object at 0x0000018982442D10>
+image_filename: <ast.Call object at 0x000001898243F6A0>
+recipient_email: pessiartist@gmail.com
+msg: <ast.Call object at 0x000001898244A890>

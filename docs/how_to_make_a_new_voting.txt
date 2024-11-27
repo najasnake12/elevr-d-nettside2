@@ -1,0 +1,13 @@
+### HOW TO MAKE A NEW VOTING, OR UPDATE THE CURRENT VOTING:
+
+(In this context, I'm talking about the main Python file.)
+
+IMPORTANT: This code may change, remember to keep updating the lines (the lines to edit) in this "guide".
+
+1. On line "177", change "1", and/or "2" (or whatever they are named), to the name of your liking.
+2. On line "186" change "1" and/or "2" (or whatever they are named), to the same name as line "177".
+3. On line "210" change "1" (in the votes["1"] ) to the same name as line "177".
+4. On line "227" change "2" (in the votes["2"] ) to the same name as line "177".
+5. Open "voting.html" and change the voting names (as well as the variables) to the same name as line "177" in the Python file. (The Python file is the file you're reading this in)
+6 IMPORTANT: When a voting is finished, and a new one is starting; make sure that you delete ALL the ip addresses from "ip_addresses.txt"
+7. IMPORTANT: Inside the "voting_database.txt" file, remember to change "1" and/or "2" to the current names of the different votings. And it's also important to reset the votes to 0; not just delete them.
