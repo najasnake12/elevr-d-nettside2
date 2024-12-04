@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "env": {
+    "PYTHON_VERSION": "3.9"  // Specify Python version explicitly
+  },
   "builds": [
     {
       "src": "app.py",
