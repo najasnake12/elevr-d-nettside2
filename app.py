@@ -11,6 +11,12 @@ import secrets
 
 app = Flask(__name__)
 
+app.secret_key = secrets.token_urlsafe(16)
+app.config['SESSION_FILE_DIR'] = 'flask_session'
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
 english_words_global = ['dope', 'omg', 'simp', 'cringe']
 common_typos = ['adresse', 'aggressiv', ' nettop', 'nyskjerrig', 'igang', 'istedet', 'utrykk', 'tilegg', 'desverre', 'kansjke', 'etterhvert', 'ifjor', 'ihvertfall', 'epost', 'interesert', 'interesant', 'sannsynelig', 'sansynlig', 'sansynnlig', 'sjangse', 'baler', 'skjekke', 'leke stativ', 'sand kasse', 'fotbalbane', 'fotbal', 'basketbal', 'hokey', 'hocey', 'spesiellt', 'iriterende', 'sinnt', 'såvidt', 'interisert']
 
@@ -32,12 +38,6 @@ def load_passwords():
 
 
 load_passwords()
-
-app.secret_key = secrets.token_urlsafe(16)
-app.config['SESSION_FILE_DIR'] = 'flask_session'
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
